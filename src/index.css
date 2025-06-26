@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-foreground: hsl(211, 100%, 99%);
+    --secondary: hsl(60, 4.8%, 95.9%);
+    --secondary-foreground: hsl(24, 9.8%, 10%);
+    --accent: hsl(60, 4.8%, 95.9%);
+    --accent-foreground: hsl(24, 9.8%, 10%);
+    --destructive: hsl(0, 84.2%, 60.2%);
+    --destructive-foreground: hsl(60, 9.1%, 97.8%);
+    --ring: hsl(20, 14.3%, 4.1%);
+    --radius: 0.5rem;
+
+    /* GitHub Colors Light */
+    --github-light: hsl(0, 0%, 100%);
+    --github-light-secondary: hsl(210, 17%, 97%);
+    --github-light-tertiary: hsl(216, 12%, 84%);
+    --github-light-text: hsl(217, 13%, 15%);
+    --github-light-muted: hsl(215, 6%, 40%);
+    --github-blue: hsl(207, 90%, 54%);
+    --github-green: hsl(137, 55%, 20%);
+  }
+
+  .dark {
+    --background: hsl(240, 10%, 3.9%);
+    --foreground: hsl(0, 0%, 98%);
+    --muted: hsl(240, 3.7%, 15.9%);
+    --muted-foreground: hsl(240, 5%, 64.9%);
+    --popover: hsl(240, 10%, 3.9%);
+    --popover-foreground: hsl(0, 0%, 98%);
+    --card: hsl(240, 10%, 3.9%);
+    --card-foreground: hsl(0, 0%, 98%);
+    --border: hsl(240, 3.7%, 15.9%);
+    --input: hsl(240, 3.7%, 15.9%);
+    --primary: hsl(207, 90%, 54%);
+    --primary-foreground: hsl(211, 100%, 99%);
+    --secondary: hsl(240, 3.7%, 15.9%);
+    --secondary-foreground: hsl(0, 0%, 98%);
+    --accent: hsl(240, 3.7%, 15.9%);
+    --accent-foreground: hsl(0, 0%, 98%);
+    --destructive: hsl(0, 62.8%, 30.6%);
+    --destructive-foreground: hsl(0, 0%, 98%);
+    --ring: hsl(240, 4.9%, 83.9%);
+
+    /* GitHub Colors Dark */
+    --github-dark: hsl(220, 13%, 7%);
+    --github-dark-secondary: hsl(220, 13%, 13%);
+    --github-dark-tertiary: hsl(220, 13%, 19%);
+    --github-dark-text: hsl(220, 14%, 79%);
+    --github-dark-muted: hsl(220, 5%, 55%);
+    --github-blue: hsl(207, 90%, 54%);
+    --github-green: hsl(137, 85%, 33%);
+  }
+
+  @layer base {
+    body {
+      @apply font-sans antialiased transition-colors duration-200;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--github-light); /* Match light theme background */
+      color: var(--github-light-text);
+      /* Prevent scrolling while preloader is active */
+      overflow: hidden;
+    }
+
+    .dark body {
+      background-color: var(--github-dark); /* Match dark theme background */
+      color: var(--github-dark-text);
+    }
+
+    /* Preloader styles */
+    .preloader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--github-light); /* Match light theme background */
+      z-index: 9999; /* Ensure it's on top */
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+
+    .dark .preloader-container {
+       background-color: var(--github-dark); /* Match dark theme background */
+    }
+
+    .preloader-container.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none; /* Allow clicks through once hidden */
+    }
+
+    .preloader-logo {
+      width: 100px; /* Adjust size as needed */
+      height: 100px; /* Adjust size as needed */
+      animation: spin 2s linear infinite; /* Optional: Add a spin animation */
+    }
+
+    /* Styles for the PNG image */
+    .preloader-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Ensure the image fits within the container */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  }
+
+  @layer components {
+    .github-bg-primary {
+      background-color: var(--github-light);
+    }
+    
+    .dark .github-bg-primary {
+      background-color: var(--github-dark);
+    }
+    
+    .github-bg-secondary {
+      background-color: var(--github-light-secondary);
+    }
+    
+    .dark .github-bg-secondary {
+      background-color: var(--github-dark-secondary);
+    }
+    
+    .github-bg-tertiary {
+      background-color: var(--github-light-tertiary);
+    }
+    
+    .dark .github-bg-tertiary {
+      background-color: var(--github-dark-tertiary);
+    }
+    
+    .github-text-primary {
+      color: var(--github-light-text);
+    }
+    
+    .dark .github-text-primary {
+      color: var(--github-dark-text);
+    }
+    
+    .github-text-muted {
+      color: var(--github-light-muted);
+    }
+    
+    .dark .github-text-muted {
+      color: var(--github-dark-muted);
+    }
+    
+    .github-border {
+      border-color: var(--github-light-tertiary);
+    }
+    
+    .dark .github-border {
+      border-color: var(--github-dark-tertiary);
+    }
+    
+    .github-hover:hover {
+      background-color: var(--github-light-tertiary);
+    }
+    
+    .dark .github-hover:hover {
+      background-color: var(--github-dark-tertiary);
+    }
+  }
+}
+

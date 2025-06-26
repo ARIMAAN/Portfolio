@@ -166,7 +166,7 @@ function App() {
                     {quotes[quoteIndex]}
                   </p>
                   <p className="github-text-muted text-sm mt-4">
-                    © 2024 Bhavan Arimaan. Built with modern web technologies.
+                    © 2025 Bhavan Arimaan. Engineered for tomorrow.
                   </p>
                 </div>
               </div>

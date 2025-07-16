@@ -127,30 +127,22 @@ function App() {
   }, [quotes.length]);
 
   useEffect(() => {
-    // Disable scrolling when loading starts
     document.body.style.overflow = 'hidden';
 
     const timer = setTimeout(() => {
       setLoading(false);
-      // Re-enable scrolling when loading finishes
-      document.body.style.overflow = 'auto'; // Changed from '' to 'auto'
-    }, 2000); // Adjust delay as needed (e.g., 2000ms = 2 seconds)
-
-    // Cleanup function to ensure scrolling is re-enabled if component unmounts
+      document.body.style.overflow = 'auto';
+    }, 2000);
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = '';
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        {/* Conditionally render Preloader */}
         {loading && <Preloader />}
-
-        {/* Render main content only when not loading */}
-        {/* Add 'relative' to the main container if Navigation is sticky/fixed */}
         <div className={`min-h-screen github-bg-primary ${loading ? 'hidden' : ''}`}>
           <Navigation />
           <div className="w-full">

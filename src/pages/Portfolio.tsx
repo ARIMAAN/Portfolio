@@ -24,6 +24,13 @@ const experiences = [
 			"Developed a centralized healthcare monitoring platform for DDHS. Features included geofencing-based doctor attendance, real-time analytics, role-based dashboards, and automated alerts using the MERN stack.",
 		current: false,
 	},
+  {
+    title: "Project Lead – Blockchain-Based Dapp",
+    company: "Academic Project",
+    period: "December 2024",
+    description:"Led the development of a decentralized social media Dapp using blockchain technology. Designed and deployed smart contracts for secure global and private chat, implemented MetaMask-based authentication, and ensured immutable, censorship-resistant text messaging.",
+    current: false
+  },
 	{
 		title: "Cybersecurity Workshop Organizer",
 		company: "CTF Team",
@@ -326,6 +333,7 @@ export default function Portfolio() {
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="flex items-center github-text-primary">
                   <Code className="h-5 w-5 mr-2" />
+                  Projects
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -422,7 +430,7 @@ export default function Portfolio() {
                             </h3>
                             <p className="text-xs github-text-muted mb-2">{cert.issuer}</p>
                             <p className="text-xs github-text-muted">
-                              Issued: {cert.issued} • Valid until: {cert.expiry}
+                              Issued: {cert.issued} • Valid until: {cert.expiry === null ? "∞ (No Expiry)" : cert.expiry}
                             </p>
                           </div>
                         </div>

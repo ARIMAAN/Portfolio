@@ -19,7 +19,7 @@ interface ProfileData {
 }
 
 const defaultProfile: ProfileData = {
-  name: "BHAVAN ARIMAAN",
+  name: "BHAVAN ARIMAAN T",
   username: "ARIMAAN",
   bio: "Passionate Software Developer | Cybersecurity & Ethical Hacking Enthusiast | MERN Stack & Blockchain",
   location: "India",

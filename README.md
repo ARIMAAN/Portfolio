@@ -1,4 +1,4 @@
-# Bhavan Arimaan - Portfolio
+# Bhavan Arimaan T - Portfolio
 
 This repository contains the source code for my personal portfolio website. It showcases my skills, experience, projects, and certifications as a Software Developer specializing in cybersecurity, ethical hacking, MERN stack, and blockchain technologies.
 

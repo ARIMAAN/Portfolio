@@ -42,7 +42,7 @@ export function Navigation() {
                 alt="Logo"
                 className="h-8 w-8 object-contain"
                 />
-              <span className="text-xl font-semibold github-text-primary">Bhavan Arimaan</span>
+              <span className="text-xl font-semibold github-text-primary">Bhavan Arimaan T</span>
             </div>
             <div className="hidden md:flex space-x-6">
               {navLinks.map((link) => (

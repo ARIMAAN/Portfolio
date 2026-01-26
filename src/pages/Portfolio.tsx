@@ -8,14 +8,14 @@ import { RepositoryCard } from "../components/RepositoryCard";
 import { Preloader } from "../components/Preloader"; // Import the Preloader component
 
 const experiences = [
-	// {
-	// 	title: "Software Developer Intern",
-	// 	company: "[Your Organization/College Project Team Name]",
-	// 	period: "2025 – Present",
-	// 	description:
-	// 		"Led the development of a decentralized social media Dapp using Solidity, React, and Web3.js. Implemented secure global and private chat functionality with Ethereum wallet-based admin moderation. Strengthened skills in blockchain, secure communication systems, and real-time messaging.",
-	// 	current: true,
-	// },
+  {
+    title: "Software Engineer Trainee",
+    company: "Novac Technology Solutions",
+    period: "Jul 2025 – Present",
+    description:
+      "Worked on backend development and enterprise applications using ASP.NET, ADO.NET, and relational databases. Built and supported RESTful APIs, debugged and resolved application issues, and collaborated with senior engineers on testing, performance optimization, and deployment. Gained hands-on experience with clean coding practices, documentation, and secure development workflows.",
+    current: true,
+  },
 	{
 		title: "Project Lead – Centralized Healthcare Platform",
 		company: "Academic Project",
@@ -78,8 +78,11 @@ const skillCategories = [
 		skills: [
 			"Node.js",
 			"Express.js",
-			"MongoDB",
+			"ASP.NET",
+			"ADO.NET",
 			"Flask",
+			"MongoDB",
+			"MySQL",
 			"REST APIs",
 			"Google Sheets API"
 		],
@@ -88,13 +91,17 @@ const skillCategories = [
 		name: "Cybersecurity",
 		color: "text-red-500",
 		skills: [
-			"Ethical Hacking",
-			"Penetration Testing",
+			"Cybersecurity Fundamentals",
+			"Security Monitoring & Log Analysis",
+			"SIEM Basics",
+			"Incident Response Fundamentals",
 			"CTF Challenges",
-			"Kali Linux",
-			"Nessus",
+			"Linux Security",
+			"Nmap",
+			"Hydra",
+			"John the Ripper",
 			"Wireshark",
-			"Burp Suite"
+			"Nessus (Basics)"
 		],
 	},
 	{
@@ -111,29 +118,56 @@ const skillCategories = [
 		name: "General & Tools",
 		color: "text-yellow-600",
 		skills: [
-			"JAVA",
+			"Java",
 			"C++",
-			"MySQL",
 			"Python",
 			"Git & GitHub",
-			"Docker",
+			"Docker (Basics)",
 			"Linux",
 			"Firebase",
 			"VS Code",
 			"Postman",
-			"Problem Solving"
+			"Networking Fundamentals (TCP/IP, DNS, HTTP)",
+			"Problem Solving",
+			"Technical Documentation"
 		],
 	}
 ];
 
 
+
 const certifications = [
+  {
+    name: "Certified Ransomware Protection Officer (CRPO)",
+    issuer: "European Union Cyber Academy",
+    issued: "2026",
+    expiry: null,
+    icon: "🧠", // ransomware & cyber resilience
+    link: "https://mycourse.app/DU9XxsBGNNhe5m0zD"
+  },
+
+	{
+		name: "Advent of Cyber 2025",
+		issuer: "TryHackMe",
+		issued: "2025",
+		expiry: null,
+		icon: "🎄", // hands-on cybersecurity labs
+		link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-V34PWRYZIN.pdf",
+	},
+	{
+		name: "Cybersecurity 101",
+		issuer: "TryHackMe",
+		issued: "2025",
+		expiry: null,
+		icon: "💻", // foundational cybersecurity
+		link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-0DA010RI7S.pdf",
+	},
 	{
 		name: "Foundations of Cybersecurity",
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🛡", // general cybersecurity
+		icon: "🛡",
 		link: "https://coursera.org/verify/KJ3L4WDUV947",
 	},
 	{
@@ -141,7 +175,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "⚠", // risk management
+		icon: "⚠",
 		link: "https://coursera.org/verify/WM66P7MPQF5N",
 	},
 	{
@@ -149,7 +183,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🌐", // networking
+		icon: "🌐",
 		link: "https://coursera.org/verify/3QWHUB522PDG",
 	},
 	{
@@ -157,7 +191,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🖥", // tools & OS
+		icon: "🖥",
 		link: "https://coursera.org/verify/9VBXU58JVYVQ",
 	},
 	{
@@ -165,7 +199,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🔍", // threat analysis
+		icon: "🔍",
 		link: "https://coursera.org/verify/J4U7J5AHA3Z9",
 	},
 	{
@@ -173,7 +207,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🚨", // incident response
+		icon: "🚨",
 		link: "https://www.coursera.org/account/accomplishments/verify/EB57HCUFKCHC",
 	},
 	{
@@ -181,7 +215,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🐍", // Python
+		icon: "🐍",
 		link: "https://coursera.org/verify/XTPWP38UJXUN",
 	},
 	{
@@ -189,7 +223,7 @@ const certifications = [
 		issuer: "Google Cybersecurity Certificate (via Coursera)",
 		issued: "2024",
 		expiry: null,
-		icon: "🎯", // career/job focused
+		icon: "🎯",
 		link: "https://coursera.org/verify/TLWGC2AVJ8UR",
 	},
 	{
@@ -197,7 +231,7 @@ const certifications = [
 		issuer: "Zaid Sabih – zSecurity (via Udemy)",
 		issued: "2023",
 		expiry: null,
-		icon: "💣", // hacking
+		icon: "💣",
 		link: "https://udemy-certificate.s3.amazonaws.com/image/UC-b9622ea7-84e8-4460-94d2-4b7405b7c835.jpg",
 	},
 	{
@@ -213,10 +247,11 @@ const certifications = [
 		issuer: "Udemy",
 		issued: "2024",
 		expiry: null,
-		icon: "🧱", // full stack/web dev
+		icon: "🧱",
 		link: "https://udemy-certificate.s3.amazonaws.com/image/UC-3c204a27-bb26-4dba-b5d5-72a5c04100f8.jpg",
 	}
 ];
+
 interface Repository {
   name: string;
   description: string;

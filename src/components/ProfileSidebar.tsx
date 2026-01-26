@@ -28,7 +28,7 @@ const defaultProfile: ProfileData = {
   email: "arimaanbhavant@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/bhavan-arimaan/",
   leetcode : "https://leetcode.com/u/BHAVAN_ARIMAAN/",
-  resumeUrl: "https://drive.google.com/file/d/1xTxNxVEXJ_UIzTEafEc1Ooc-Zdk90P6i/view?usp=sharing" // Assuming your resume is named resume.pdf in the public folder
+  resumeUrl: "https://drive.google.com/file/d/1E5CfylKFkbieVwnlcMJAsuFRBjav_CvE/view?usp=sharing" // Assuming your resume is named resume.pdf in the public folder
 };
 
 export function ProfileSidebar() {

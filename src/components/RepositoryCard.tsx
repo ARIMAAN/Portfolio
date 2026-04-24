@@ -1,6 +1,9 @@
 import { Star, GitFork, Book } from "lucide-react";
+import { useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { fetchRepoReadme } from "../lib/github";
 
 interface RepositoryCardProps {
   name: string;
@@ -35,6 +38,33 @@ export function RepositoryCard({
   htmlUrl 
 }: RepositoryCardProps) {
   const languageColor = language ? languageColors[language] || "bg-gray-500" : "bg-gray-500";
+  const [showPreview, setShowPreview] = useState(false);
+  const [readme, setReadme] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function loadReadme() {
+    if (readme || loading) {
+      setShowPreview(prev => !prev);
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      const content = await fetchRepoReadme(htmlUrl);
+      if (!content) {
+        setError('Preview not available');
+        setReadme(null);
+      } else {
+        setReadme(content);
+        setShowPreview(true);
+      }
+    } catch (err: any) {
+      setError(err?.message || String(err));
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <Card className="github-bg-primary github-border hover:border-github-blue transition-colors cursor-pointer">
@@ -49,12 +79,17 @@ export function RepositoryCard({
             <Book className="h-4 w-4 mr-2" />
             {name}
           </a>
-          <Badge 
-            variant="outline" 
-            className="text-xs github-bg-secondary github-border"
-          >
-            {isPublic ? "Public" : "Private"}
-          </Badge>
+          <div className="flex items-center space-x-2">
+            <Badge 
+              variant="outline" 
+              className="text-xs github-bg-secondary github-border"
+            >
+              {isPublic ? "Public" : "Private"}
+            </Badge>
+            <Button size="sm" variant="ghost" onClick={() => loadReadme()}>
+              {loading ? 'Loading…' : (showPreview ? 'Hide Preview' : 'Preview')}
+            </Button>
+          </div>
         </div>
         
         {description && (
@@ -81,6 +116,17 @@ export function RepositoryCard({
             </span>
           </div>
         </div>
+        {showPreview && (
+          <div className="mt-3 bg-github-bg-secondary p-3 rounded text-xs max-h-48 overflow-auto">
+            {error && <div className="text-red-400">{error}</div>}
+            {!error && readme && (
+              <pre className="whitespace-pre-wrap">{readme.slice(0, 2000)}</pre>
+            )}
+            {!error && !readme && !loading && (
+              <div className="text-github-muted text-xs">No preview available</div>
+            )}
+          </div>
+        )}
       </CardContent>
     </Card>
   );

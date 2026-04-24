@@ -161,7 +161,6 @@ export function ProfileSidebar() {
               </Button>
             )}
           </div>
-
           {/* Stats */}
         </div>
       </CardContent>

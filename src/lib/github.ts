@@ -46,3 +46,28 @@ export async function fetchGitHubUser(username: string): Promise<GitHubUser> {
   console.log(`Fetched GitHub user profile for ${username}:`, data); // Log the fetched data
   return data;
 }
+
+export async function fetchRepoReadme(htmlUrl: string): Promise<string | null> {
+  try {
+    const url = new URL(htmlUrl);
+    const parts = url.pathname.split('/').filter(Boolean);
+    if (parts.length < 2) return null;
+    const owner = parts[0];
+    const repo = parts[1];
+
+    const candidates = [
+      `https://raw.githubusercontent.com/${owner}/${repo}/main/README.md`,
+      `https://raw.githubusercontent.com/${owner}/${repo}/master/README.md`
+    ];
+
+    for (const c of candidates) {
+      const res = await fetch(c);
+      if (res.ok) return await res.text();
+    }
+
+    return null;
+  } catch (err) {
+    console.error('fetchRepoReadme error:', err);
+    return null;
+  }
+}

@@ -65,26 +65,31 @@ const skillCategories = [
 		name: "Frontend Development",
 		color: "text-green-600",
 		skills: [
-			"React.js",
-			"JavaScript (ES6+)",
-			"HTML5",
-			"CSS3",
-			"Tailwind CSS"
+      "React.js",
+      "Vite",
+      "Bootstrap",
+      "React Player",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS"
 		],
 	},
 	{
 		name: "Backend Development",
 		color: "text-blue-600",
 		skills: [
-			"Node.js",
-			"Express.js",
-			"ASP.NET",
-			"ADO.NET",
-			"Flask",
-			"MongoDB",
-			"MySQL",
-			"REST APIs",
-			"Google Sheets API"
+      "Node.js",
+      "Express.js",
+      "Go",
+      "Gin",
+      "ASP.NET",
+      "ADO.NET",
+      "Flask",
+      "MongoDB",
+      "MySQL",
+      "REST APIs",
+      "Google Sheets API"
 		],
 	},
 	{
